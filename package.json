@@ -1,0 +1,29 @@
+{
+  "name": "png-coder",
+  "version": "0.1.0",
+  "description": "Simple PNG encoder/decoder",
+  "author": "Kuba Niegowski",
+  "contributors": [],
+  "homepage": "https://github.com/niegowski/node-pngjs/",
+  "keywords": [
+    "png"
+  ],
+  "engines": {
+    "node": "0.8.x"
+  },
+  "main": "./lib/png.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/achillessin/png-coder"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/achillessin/png-coder/issues"
+  }
+}
