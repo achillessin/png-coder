@@ -2,16 +2,16 @@
   "name": "png-coder",
   "version": "0.1.0",
   "description": "Simple PNG encoder/decoder",
-  "author": "Kuba Niegowski",
+  "author": "Sisil Mehta",
   "contributors": [],
-  "homepage": "https://github.com/niegowski/node-pngjs/",
+  "homepage": "https://github.com/achillessin/png-coder",
   "keywords": [
-    "png"
+    "png","encoding","decoding"
   ],
   "engines": {
     "node": "0.8.x"
   },
-  "main": "./lib/png.js",
+  "main": "./lib/png-coder.js",
   "directories": {
     "example": "examples"
   },

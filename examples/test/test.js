@@ -1,6 +1,6 @@
 
 var fs = require('fs'),
-    PNG = require('pngjs').PNG;
+    PNG = require('png-coder').PNG;
 
 
 fs.readdir(__dirname + '/img/', function(err, files) {

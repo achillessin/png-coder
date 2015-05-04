@@ -1,6 +1,6 @@
 
 var fs = require('fs'),
-    PNG = require('pngjs').PNG;
+    PNG = require('png-coder').PNG;
 
 fs.createReadStream('in.png')
     .pipe(new PNG({

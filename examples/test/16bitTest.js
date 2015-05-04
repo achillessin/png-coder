@@ -3,7 +3,7 @@
  */
 
 var fs = require('fs');
-var PNG = require('../../lib/png').PNG;
+var PNG = require('../../lib/png-coder').PNG;
 
 var png = new PNG({
         filterType: -1

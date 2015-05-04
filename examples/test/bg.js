@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
-    PNG = require('pngjs').PNG;
+    PNG = require('png-coder').PNG;
 
 
 var png = new PNG({
