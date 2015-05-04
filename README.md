@@ -9,12 +9,13 @@ Installation
 $ npm install png-coder
 ```
 
-Example
+Example: 8bit images
 ==========
 ```js
 var fs = require('fs'),
     PNG = require('png-coder').PNG;
 
+// for 8-bit
 fs.createReadStream('in.png')
     .pipe(new PNG({
         filterType: 4
@@ -32,6 +33,36 @@ fs.createReadStream('in.png')
 
                 // and reduce opacity
                 this.data[idx+3] = this.data[idx+3] >> 1;
+            }
+        }
+
+        this.pack().pipe(fs.createWriteStream('out.png'));
+    });
+```
+
+Example: 16bit images
+==========
+```js
+var fs = require('fs'),
+    PNG = require('png-coder').PNG;
+
+fs.createReadStream('in.png')
+    .pipe(new PNG({
+        filterType: -1
+    }))
+    .on('parsed', function() {
+
+        for (var y = 0; y < this.height; y++) {
+            for (var x = 0; x < this.width; x++) {
+                var idx = (this.width * y + x) << (2 + (this.depth / 8) - 1);
+
+                // invert color
+                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx), idx);
+                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx+2), idx+2);
+                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx+4), idx+4);
+
+                // and reduce opacity
+                this.data.writeUInt16BE(this.data.readUInt16BE(idx+6) >> 1, idx+6);
             }
         }
 
