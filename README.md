@@ -54,12 +54,12 @@ fs.createReadStream('in.png')
 
         for (var y = 0; y < this.height; y++) {
             for (var x = 0; x < this.width; x++) {
-                var idx = (this.width * y + x) << (2 + (this.depth / 8) - 1);
+                var idx = (this.width * y + x) << (2 + this.depthInBytes - 1);
 
                 // invert color
-                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx), idx);
-                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx+2), idx+2);
-                this.data.writeUInt16BE(65355 - this.data.readUInt16BE(idx+4), idx+4);
+                this.data.writeUInt16BE(65535 - this.data.readUInt16BE(idx), idx);
+                this.data.writeUInt16BE(65535 - this.data.readUInt16BE(idx+2), idx+2);
+                this.data.writeUInt16BE(65535 - this.data.readUInt16BE(idx+4), idx+4);
 
                 // and reduce opacity
                 this.data.writeUInt16BE(this.data.readUInt16BE(idx+6) >> 1, idx+6);
